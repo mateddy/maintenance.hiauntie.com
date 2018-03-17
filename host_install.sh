@@ -16,4 +16,5 @@ if [ "${MY_HOSTNAME}" != "host0" ]; then
 fi
 
 scp install/hiauntie_run.sh hiauntie_bot@hiauntie.com:/home/hiauntie_bot/
+ssh hiauntie_bot@hiauntie.com -C chmod 755 /home/hiauntie_bot/hiauntie_run.sh
 ssh hiauntie_bot@hiauntie.com -C /home/hiauntie_bot/hiauntie_run.sh
