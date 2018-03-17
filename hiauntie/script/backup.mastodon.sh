@@ -9,12 +9,12 @@ mkdir -p /tmp/XFJXIDUJ-backup
 
 mkdir -p /tmp/XFJXIDUJ-backup/hiauntie-backup
 
-# backup DB
+echo QPTRBMEM backup DB
 pg_dump mastodon_production > /tmp/XFJXIDUJ-backup/hiauntie-backup/mastodon_production.sql
 
-# backup user generated content
+echo HFGNJLSS backup user generated content
 cd /home/mastodon/live/public
 tar -czf /tmp/XFJXIDUJ-backup/hiauntie-backup/ugc.tar.gz system
 
-# backup server secret
+echo SIXTBIUG backup server secret
 cp /home/mastodon/live/.env.production /tmp/XFJXIDUJ-backup/hiauntie-backup/env.production
