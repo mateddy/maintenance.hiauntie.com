@@ -9,10 +9,17 @@ hiauntie_bot ALL=(ALL) NOPASSWD:ALL
 
 sudo su - hiauntie_bot
 
+mkdir -p /home/hiauntie_bot/.ssh/
+
+# get ssh key
+ssh-keygen -F github.com || ssh-keyscan github.com >> /home/hiauntie_bot/.ssh/known_hosts
+ssh-keygen -F hiauntie.com || ssh-keyscan github.com >> /home/hiauntie_bot/.ssh/known_hosts
+
 ssh-keygen -t rsa -b 4096 -C "hiauntie_bot@host0.luzi82.com"
 
 cat /home/hiauntie_bot/.ssh/id_rsa.pub
-# copy content
+# copy key to github.com
+# copy content to hiauntie.com, see below
 
 ================
 
@@ -28,8 +35,17 @@ hiauntie_bot ALL=(ALL) NOPASSWD:ALL
 sudo su - hiauntie_bot
 
 mkdir -p /home/hiauntie_bot/.ssh/
+
+# get github key
+ssh-keygen -F github.com || ssh-keyscan github.com >> /home/hiauntie_bot/.ssh/known_hosts
+
 nano /home/hiauntie_bot/.ssh/authorized_keys
 # paste pub key data
+
+ssh-keygen -t rsa -b 4096 -C "hiauntie_bot@hiauntie.com"
+
+cat /home/hiauntie_bot/.ssh/id_rsa.pub
+# copy key to github.com
 
 =================
 
@@ -37,7 +53,5 @@ nano /home/hiauntie_bot/.ssh/authorized_keys
 
 sudo su - hiauntie_bot
 
-ssh hiauntie_bot@hiauntie.com -C ls # get fingerprint
-
 cd ~
-git clone 
+git clone git@github.com:luzi82/maintenance.hiauntie.com.git
