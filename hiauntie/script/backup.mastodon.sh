@@ -15,4 +15,4 @@ cd /home/mastodon/live/public
 tar -czf /tmp/XFJXIDUJ-backup/ugc.tar.gz system
 
 # backup server secret
-cp /home/mastodon/live/.env.production /tmp/XFJXIDUJ-backup/
+cp /home/mastodon/live/.env.production /tmp/XFJXIDUJ-backup/env.production
