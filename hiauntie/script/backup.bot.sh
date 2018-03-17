@@ -2,6 +2,8 @@
 
 set -e
 
+PATH=/home/hiauntie_bot/bin:/home/hiauntie_bot/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin
+
 TIMESTAMP_YYYY=`date +%Y`
 TIMESTAMP_FULL=`date +%Y%m%d-%H%M%S`
 
