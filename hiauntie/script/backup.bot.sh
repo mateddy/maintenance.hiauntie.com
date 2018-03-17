@@ -37,7 +37,7 @@ rm -rf /tmp/XFJXIDUJ-backup/pack
 
 # upload to s3
 cd /tmp/XFJXIDUJ-backup
-aws s3 cp /tmp/XFJXIDUJ-backup/pack.tar s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/data-backup-${TIMESTAMP_FULL}.tar
+aws s3 cp /tmp/XFJXIDUJ-backup/pack.tar s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/data-backup-${TIMESTAMP_FULL}.tar --quiet
 
 # clean up
 sudo rm -rf /tmp/XFJXIDUJ-backup
