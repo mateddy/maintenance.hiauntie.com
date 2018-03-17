@@ -37,6 +37,7 @@ ssh hiauntie_bot@hiauntie.com -C chmod 600 /home/hiauntie_bot/.hiauntie/backup_e
 scp hiauntie/script/install.sh hiauntie_bot@hiauntie.com:/home/hiauntie_bot/
 ssh hiauntie_bot@hiauntie.com -C chmod 755 /home/hiauntie_bot/install.sh
 ssh hiauntie_bot@hiauntie.com -C /home/hiauntie_bot/install.sh
+ssh hiauntie_bot@hiauntie.com -C rm /home/hiauntie_bot/install.sh
 
 # install files
 sudo cp host/root/etc/cron.d/hiauntie_backup /etc/cron.d/hiauntie_backup
