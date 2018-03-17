@@ -53,5 +53,8 @@ cat /home/hiauntie_bot/.ssh/id_rsa.pub
 
 sudo su - hiauntie_bot
 
-cd ~
+cd /home/hiauntie_bot
 git clone git@github.com:luzi82/maintenance.hiauntie.com.git
+
+cd /home/hiauntie_bot/maintenance.hiauntie.com
+./host_install.sh
