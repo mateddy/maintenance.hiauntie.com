@@ -1,3 +1,3 @@
 PATH=/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
-30 3 * * * hiauntie_bot /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/backup.bot.sh >> /var/log/hiauntie/backup.bot.log
+30 3 * * * hiauntie_bot /home/hiauntie_bot/maintenance.hiauntie.com/host/script/backup.sh >> /var/log/hiauntie/backup.bot.log
