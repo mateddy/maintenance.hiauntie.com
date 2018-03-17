@@ -1,6 +1,7 @@
 AWS prepare 2 pair access keys
-
 https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credential
+
+prepare /home/hiauntie_bot/.hiauntie/backup_enc_key
 
 ================
 
