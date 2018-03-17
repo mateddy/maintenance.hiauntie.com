@@ -5,6 +5,7 @@
 set -e
 
 rm -rf /tmp/XFJXIDUJ-backup
+mkdir /tmp/XFJXIDUJ-backup
 
 # backup DB
 pg_dump mastodon_production > /tmp/XFJXIDUJ-backup/mastodon_production.sql
