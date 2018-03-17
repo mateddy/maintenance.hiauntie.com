@@ -19,8 +19,7 @@ fi
 # install software
 sudo apt-get install python-pip pwgen -y
 sudo pip install --upgrade pip
-pip install --user awscli
-pip install --user --upgrade awscli
+pip install --user --upgrade awscli Mastodon.py
 
 # create log folder
 sudo mkdir -p /var/log/hiauntie

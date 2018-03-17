@@ -4,8 +4,7 @@ set -e
 
 sudo apt-get install python-pip pwgen -y
 sudo pip install --upgrade pip
-pip install --user awscli
-pip install --user --upgrade awscli
+pip install --user --upgrade awscli Mastodon.py
 
 cd /home/hiauntie_bot
 if [ ! -d maintenance.hiauntie.com ]; then
