@@ -5,6 +5,8 @@ set -e
 TIMESTAMP_YYYY=`date +%Y`
 TIMESTAMP_FULL=`date +%Y%m%d-%H%M%S`
 
+echo TIMESTAMP_FULL=${TIMESTAMP_FULL}
+
 # use mastodon create backup files
 sudo rm -rf /tmp/XFJXIDUJ-backup
 sudo sudo -u mastodon /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/backup.mastodon.sh
