@@ -1,0 +1,43 @@
+# run in host server
+
+sudo adduser --disabled-password hiauntie_bot
+
+sudo visudo -f /etc/sudoers.d/hiauntie_bot
+
+# /etc/sudoers.d/hiauntie_bot
+hiauntie_bot ALL=(ALL) NOPASSWD:ALL
+
+sudo su - hiauntie_bot
+
+ssh-keygen -t rsa -b 4096 -C "hiauntie_bot@host0.luzi82.com"
+
+cat /home/hiauntie_bot/.ssh/id_rsa.pub
+# copy content
+
+================
+
+# run in hiauntie.com
+
+sudo adduser --disabled-password hiauntie_bot
+
+sudo visudo -f /etc/sudoers.d/hiauntie_bot
+
+# /etc/sudoers.d/hiauntie_bot
+hiauntie_bot ALL=(ALL) NOPASSWD:ALL
+
+sudo su - hiauntie_bot
+
+mkdir -p /home/hiauntie_bot/.ssh/
+nano /home/hiauntie_bot/.ssh/authorized_keys
+# paste pub key data
+
+=================
+
+# run in host server
+
+sudo su - hiauntie_bot
+
+ssh hiauntie_bot@hiauntie.com -C ls # get fingerprint
+
+cd ~
+git clone 
