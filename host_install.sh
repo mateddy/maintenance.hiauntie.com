@@ -17,7 +17,7 @@ if [ "${MY_HOSTNAME}" != "host0" ]; then
 fi
 
 # install software
-sudo apt install python-pip pwgen -y
+sudo apt-get install python-pip pwgen -y
 sudo pip install --upgrade pip
 pip install --user awscli
 pip install --user --upgrade awscli
