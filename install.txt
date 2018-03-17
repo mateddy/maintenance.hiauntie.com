@@ -1,3 +1,9 @@
+AWS prepare 2 pair access keys
+
+https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credential
+
+================
+
 # run in host server
 
 sudo adduser --disabled-password hiauntie_bot
@@ -20,6 +26,8 @@ ssh-keygen -t rsa -b 4096 -C "hiauntie_bot@host0.luzi82.com"
 cat /home/hiauntie_bot/.ssh/id_rsa.pub
 # copy key to github.com
 # copy content to hiauntie.com, see below
+
+aws configure # AWS access key
 
 ================
 
@@ -58,3 +66,11 @@ git clone git@github.com:luzi82/maintenance.hiauntie.com.git
 
 cd /home/hiauntie_bot/maintenance.hiauntie.com
 ./host_install.sh
+
+aws configure # AWS access key
+
+=================
+
+# run in hiauntie.com
+
+aws configure # AWS access key
