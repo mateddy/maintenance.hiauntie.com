@@ -34,9 +34,9 @@ scp /home/hiauntie_bot/.hiauntie/backup_enc_key hiauntie_bot@hiauntie.com:/home/
 ssh hiauntie_bot@hiauntie.com -C chmod 600 /home/hiauntie_bot/.hiauntie/backup_enc_key
 
 # run script in hiauntie.com
-scp hiauntie/script/hiauntie_run.sh hiauntie_bot@hiauntie.com:/home/hiauntie_bot/
-ssh hiauntie_bot@hiauntie.com -C chmod 755 /home/hiauntie_bot/hiauntie_run.sh
-ssh hiauntie_bot@hiauntie.com -C /home/hiauntie_bot/hiauntie_run.sh
+scp hiauntie/script/install.sh hiauntie_bot@hiauntie.com:/home/hiauntie_bot/
+ssh hiauntie_bot@hiauntie.com -C chmod 755 /home/hiauntie_bot/install.sh
+ssh hiauntie_bot@hiauntie.com -C /home/hiauntie_bot/install.sh
 
 # install files
 sudo cp host/root/etc/cron.d/hiauntie_backup /etc/cron.d/hiauntie_backup
