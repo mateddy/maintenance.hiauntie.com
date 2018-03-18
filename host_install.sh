@@ -58,6 +58,11 @@ ssh hiauntie_bot@hiauntie.com -C chmod 600 /home/hiauntie_bot/.hiauntie/user_ann
 scp /home/hiauntie_bot/.hiauntie/user_verbose.secret      hiauntie_bot@hiauntie.com:/home/hiauntie_bot/.hiauntie/user_verbose.secret
 ssh hiauntie_bot@hiauntie.com -C chmod 600 /home/hiauntie_bot/.hiauntie/user_verbose.secret
 
+ssh hiauntie_bot@hiauntie.com -C mkdir -p /home/hiauntie_bot/.aws
+ssh hiauntie_bot@hiauntie.com -C chmod 700 /home/hiauntie_bot/.aws
+scp /home/hiauntie_bot/.aws/* hiauntie_bot@hiauntie.com:/home/hiauntie_bot/.aws/
+ssh hiauntie_bot@hiauntie.com -C chmod 600 /home/hiauntie_bot/.aws/*
+
 # run script in hiauntie.com
 scp hiauntie/script/install.sh hiauntie_bot@hiauntie.com:/home/hiauntie_bot/
 ssh hiauntie_bot@hiauntie.com -C chmod 755 /home/hiauntie_bot/install.sh

@@ -1,5 +1,6 @@
-AWS prepare 2 pair access keys
+Prepare access keys on host, will clone to hiauntie by script
 https://console.aws.amazon.com/iam/home?region=us-east-1#/security_credential
+aws configure
 
 prepare /home/hiauntie_bot/.hiauntie/backup_enc_key
 
