@@ -25,7 +25,7 @@ acc_list = [
     },
     {
         'username':'luzi82+hiauntie_verbose@gmail.com',
-        'password':config['VERBOSE_ACCOUNT_PASSWORD']
+        'password':config['VERBOSE_ACCOUNT_PASSWORD'],
         'user_secret_file':'/home/hiauntie_bot/.hiauntie/user_verbose.secret',
     },
 ]

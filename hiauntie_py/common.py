@@ -5,7 +5,6 @@ import csv
 import io
 import json
 import datetime
-import numpy as np
 
 def makedirs(path):
     if not os.path.isdir(path):
