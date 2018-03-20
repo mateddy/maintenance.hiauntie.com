@@ -1,5 +1,6 @@
 import argparse
 from mastodon import Mastodon
+import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--account', type=str, choices=['announcement','verbose'])
