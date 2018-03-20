@@ -13,10 +13,10 @@ if not os.path.exists('/home/hiauntie_bot/.hiauntie/config.json'):
 
 CONFIG_DICT_DICT={
     'announcement':{
-        'visibility'='public'
+        'visibility':'public',
     },
     'verbose':{
-        'visibility'='unlisted'
+        'visibility':'unlisted',
     },
 }
 
