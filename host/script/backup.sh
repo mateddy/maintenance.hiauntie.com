@@ -74,7 +74,7 @@ if [ ${OPT_VM} -eq 1 ]; then
     toot verbose "AUVHTAWG vm backup ${TIMESTAMP_FULL} start"
     
     sudo rm -rf /vm/DVCQDYKB-hiauntie-vm-backup.tmp
-    mkdir -p /vm/DVCQDYKB-hiauntie-vm-backup.tmp
+    sudo mkdir -p /vm/DVCQDYKB-hiauntie-vm-backup.tmp
     sudo chown hiauntie_bot:hiauntie_bot /vm/DVCQDYKB-hiauntie-vm-backup.tmp
 
     virsh snapshot-create-as \
