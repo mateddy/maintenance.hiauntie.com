@@ -15,7 +15,7 @@ OPT_VM=0
 OPT_UPDATE=0
 OPT_MSG=0
 
-while getopts ":dvu" opt; do
+while getopts ":dvum" opt; do
     case $opt in
         d)
             OPT_DB=1
