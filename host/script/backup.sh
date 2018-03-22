@@ -169,7 +169,7 @@ if [ ${OPT_UPDATE} -eq 1 ]; then
     toot verbose "UFMBYMOO vm update-reboot ${TIMESTAMP_FULL} start"
 
     echo "SJZMLATO guest os_upgrade"
-    ssh hiauntie_bot@hiauntie.com -C /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/os_upgrade.sh
+    ssh hiauntie_bot@hiauntie.com -C /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/os_update.sh
 
     echo "SHBETWFC guest shutdown"
     ssh hiauntie_bot@hiauntie.com -C "sudo shutdown now" || true
