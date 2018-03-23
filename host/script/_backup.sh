@@ -188,7 +188,7 @@ fi
 
 if [ ${OPT_MSG} -eq 1 ]; then
 
-    toot announcement "維護工作已經完成"
+    toot announcement "維護作業已經完成"
 
 fi
 
