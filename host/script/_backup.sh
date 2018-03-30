@@ -72,10 +72,14 @@ fi
 if [ ${OPT_VM} -eq 1 ]; then
 
     toot verbose "AUVHTAWG vm backup ${TIMESTAMP_FULL} start"
+
+    echo "LLGDRILQ remove old tmp file"
     
     sudo rm -rf /vm/DVCQDYKB-hiauntie-vm-backup.tmp
     sudo mkdir -p /vm/DVCQDYKB-hiauntie-vm-backup.tmp
     sudo chown hiauntie_bot:hiauntie_bot /vm/DVCQDYKB-hiauntie-vm-backup.tmp
+
+    echo "TTOCUASF create snapshot"
 
     virsh snapshot-create-as \
         --domain social.hiauntie.com \
@@ -83,7 +87,7 @@ if [ ${OPT_VM} -eq 1 ]; then
         --diskspec hda,file=/vm-swap/social.hiauntie.com.swap.overlay \
         --disk-only --atomic --quiesce --no-metadata
 
-    echo "PSZILKXT"
+    echo "PGXSEFIQ confirm using overlay mode"
 
     OVERLAY_COUNT=`virsh domblklist social.hiauntie.com | grep overlay | wc -l`
     if [ ${OVERLAY_COUNT} -ne 2 ]; then
@@ -91,7 +95,7 @@ if [ ${OPT_VM} -eq 1 ]; then
         echo WNTOHSZA ERROR create overlay fail
     fi
 
-    echo "YLLXUKQD"
+    echo "YLLXUKQD copy and gz main disk"
 
     cd /vm
     sudo rm -rf /vm/social.hiauntie.main.com.img.gz
@@ -99,7 +103,7 @@ if [ ${OPT_VM} -eq 1 ]; then
     sudo mv /vm/social.hiauntie.main.com.img.gz /vm/DVCQDYKB-hiauntie-vm-backup.tmp/social.hiauntie.main.com.img.gz
     sudo chown hiauntie_bot:hiauntie_bot /vm/DVCQDYKB-hiauntie-vm-backup.tmp/social.hiauntie.main.com.img.gz
 
-    echo "AWXWTOWX"
+    echo "AWXWTOWX VM go back to non-overlay mode"
 
     virsh blockcommit \
         --domain social.hiauntie.com \
@@ -110,20 +114,20 @@ if [ ${OPT_VM} -eq 1 ]; then
         --path hda \
         --active --verbose --pivot --wait
 
-    echo "EFTMXBNG"
+    echo "EFTMXBNG check not using overlay"
 
     OVERLAY_COUNT=`virsh domblklist social.hiauntie.com | grep overlay | wc -l`
     if [ ${OVERLAY_COUNT} -ne 0 ]; then
         toot verbose "YKQGVYCO ERROR ${TIMESTAMP_FULL} @luzi82"
-        echo SEDKSKAS ERROR create overlay fail
+        echo SEDKSKAS ERROR overlay exist
     fi
 
-    echo "CGKVRMYU"
+    echo "CGKVRMYU remove overlay file"
 
     sudo rm -rf /vm-swap/social.hiauntie.main.com.overlay
     sudo rm -rf /vm-swap/social.hiauntie.com.swap.overlay
 
-    echo "PAQBJCQE"
+    echo "PAQBJCQE encrypt backup files"
 
     cd /vm/DVCQDYKB-hiauntie-vm-backup.tmp
     pwgen -s 256 1 > /vm/DVCQDYKB-hiauntie-vm-backup.tmp/enc.key
@@ -138,12 +142,12 @@ if [ ${OPT_VM} -eq 1 ]; then
     rm -rf /vm/DVCQDYKB-hiauntie-vm-backup.tmp/social.hiauntie.main.com.img.gz
     rm -rf /vm/DVCQDYKB-hiauntie-vm-backup.tmp/enc.key
 
-    echo "PAQBJCQE"
+    echo "NJUQUVIR md5"
     
     cd /vm/DVCQDYKB-hiauntie-vm-backup.tmp
     md5sum social.hiauntie.main.com.img.gz.enc enc.key.enc > md5.txt
 
-    echo "RURUAIWB"
+    echo "RURUAIWB upload to AWS"
 
     aws s3 cp \
         /vm/DVCQDYKB-hiauntie-vm-backup.tmp/md5.txt \
@@ -155,7 +159,7 @@ if [ ${OPT_VM} -eq 1 ]; then
         /vm/DVCQDYKB-hiauntie-vm-backup.tmp/social.hiauntie.main.com.img.gz.enc \
         s3://hiauntie-backup/vm/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/social.hiauntie.main.com.img.gz.enc --quiet
 
-    echo "YGQIGSLZ"
+    echo "YGQIGSLZ clear tmp data"
 
     cd /vm
     sudo rm -rf /vm/DVCQDYKB-hiauntie-vm-backup.tmp
