@@ -12,7 +12,7 @@ echo JEJJYMOF TIMESTAMP_FULL=${TIMESTAMP_FULL}
 echo KDSVWOCI create backup files
 cd /tmp
 sudo rm -rf /tmp/XFJXIDUJ-backup
-sudo sudo -u mastodon /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/backup.mastodon.sh
+sudo -u mastodon /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/backup.mastodon.sh
 sudo chown -R hiauntie_bot:hiauntie_bot /tmp/XFJXIDUJ-backup
 
 echo LEEIMVXB tar gz everything
