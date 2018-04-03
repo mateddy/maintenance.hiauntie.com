@@ -29,7 +29,7 @@ fi
 chmod 600 /home/hiauntie_bot/.hiauntie/config.json
 
 # install software
-sudo apt-get install python-pip python3-pip pwgen jq -y
+sudo apt-get install python-pip python3-pip pwgen jq dateutils -y
 sudo pip install --upgrade pip
 sudo pip3 install --upgrade pip
 pip install --user --upgrade awscli
