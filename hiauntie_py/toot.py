@@ -1,15 +1,12 @@
 import argparse
 from mastodon import Mastodon
 import os
+import sys
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--account', type=str, choices=['announcement','verbose'])
 parser.add_argument('--msg', type=str)
 parse_args = parser.parse_args()
-
-if not os.path.exists('/home/hiauntie_bot/.hiauntie/config.json'):
-    print('UAOWOLXS /home/hiauntie_bot/.hiauntie/config.json not exist')
-    sys.exit(1)
 
 CONFIG_DICT_DICT={
     'announcement':{
