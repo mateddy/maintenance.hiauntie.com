@@ -19,6 +19,6 @@ git pull
 sudo rm -f /etc/cron.daily/hiauntie*
 sudo rm -f /etc/cron.hourly/hiauntie*
 
-sudo cp hiauntie/root/etc/cron.hourly/hiauntie_log_df /etc/cron.hourly/
-sudo cp hiauntie/root/etc/cron.hourly/hiauntie_log_ip /etc/cron.hourly/
+sudo cp hiauntie/root/etc/cron.daily/hiauntie_log_df        /etc/cron.daily/
+sudo cp hiauntie/root/etc/cron.hourly/hiauntie_log_ip       /etc/cron.hourly/
 sudo cp hiauntie/root/etc/cron.hourly/hiauntie_log_nslookup /etc/cron.hourly/
