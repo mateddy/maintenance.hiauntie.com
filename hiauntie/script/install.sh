@@ -16,5 +16,5 @@ fi
 cd /home/hiauntie_bot/maintenance.hiauntie.com
 git pull
 
-sudo cp hiauntie/root/etc/cron.hourly/hiauntie.log_ip.sh /etc/cron.hourly/
-sudo cp hiauntie/root/etc/cron.hourly/hiauntie.log_nslookup.sh /etc/cron.hourly/
+sudo cp hiauntie/root/etc/cron.hourly/hiauntie.log_ip /etc/cron.hourly/
+sudo cp hiauntie/root/etc/cron.hourly/hiauntie.log_nslookup /etc/cron.hourly/
