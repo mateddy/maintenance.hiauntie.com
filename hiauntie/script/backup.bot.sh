@@ -43,9 +43,9 @@ cd /tmp/XFJXIDUJ-backup
 aws s3 cp /tmp/XFJXIDUJ-backup/mastodon_production.sql.gz.enc s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/mastodon_production.sql.gz.enc.${TIMESTAMP_FULL} --quiet
 aws s3 cp /tmp/XFJXIDUJ-backup/ugc.tar.gz.enc                 s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/ugc.tar.gz.enc.${TIMESTAMP_FULL} --quiet
 aws s3 cp /tmp/XFJXIDUJ-backup/env.production.gz.enc          s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/env.production.gz.enc.${TIMESTAMP_FULL} --quiet
-aws s3 cp /tmp/XFJXIDUJ-backup/mastodon_production.sql.gz.enc.key s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/mastodon_production.sql.gz.enc.key.${TIMESTAMP_FULL} --quiet
-aws s3 cp /tmp/XFJXIDUJ-backup/ugc.tar.gz.enc.key                 s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/ugc.tar.gz.enc.key.${TIMESTAMP_FULL} --quiet
-aws s3 cp /tmp/XFJXIDUJ-backup/env.production.gz.enc.key          s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/env.production.gz.enc.key.${TIMESTAMP_FULL} --quiet
+aws s3 cp /tmp/XFJXIDUJ-backup/mastodon_production.sql.gz.enc.key.enc s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/mastodon_production.sql.gz.enc.key.enc.${TIMESTAMP_FULL} --quiet
+aws s3 cp /tmp/XFJXIDUJ-backup/ugc.tar.gz.enc.key.enc                 s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/ugc.tar.gz.enc.key.enc.${TIMESTAMP_FULL} --quiet
+aws s3 cp /tmp/XFJXIDUJ-backup/env.production.gz.enc.key.enc          s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/env.production.gz.enc.key.enc.${TIMESTAMP_FULL} --quiet
 
 echo GQNLIDYQ clean up
 cd /tmp
