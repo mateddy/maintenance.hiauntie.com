@@ -31,6 +31,8 @@ openssl enc -aes-256-cbc -salt -kfile env.production.gz.enc.key          -in env
 openssl enc -aes-256-cbc -salt -kfile /home/hiauntie_bot/.hiauntie/backup_enc_key -in mastodon_production.sql.gz.enc.key -out mastodon_production.sql.gz.enc.key.enc
 openssl enc -aes-256-cbc -salt -kfile /home/hiauntie_bot/.hiauntie/backup_enc_key -in ugc.tar.gz.enc.key                 -out ugc.tar.gz.enc.key.enc
 openssl enc -aes-256-cbc -salt -kfile /home/hiauntie_bot/.hiauntie/backup_enc_key -in env.production.gz.enc.key          -out env.production.gz.enc.key.enc
+DF_STAT_0=`df -BM | grep vda2 | awk '{ print $3 " / " $2 " = " $5 }'`
+echo ZGQSAAMK ${DF_STAT_0}
 rm -f /tmp/XFJXIDUJ-backup/mastodon_production.sql.gz
 rm -f /tmp/XFJXIDUJ-backup/ugc.tar.gz
 rm -f /tmp/XFJXIDUJ-backup/env.production.gz
