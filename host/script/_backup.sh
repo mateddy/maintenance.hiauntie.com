@@ -68,7 +68,7 @@ if [ ${OPT_DB} -eq 1 ]; then
     DF_STAT_0=`cat /tmp/AUXWBAWC.log | grep ZGQSAAMK`
     rm -f /tmp/AUXWBAWC.log
 
-    toot verbose "HHNSHGUM data backup ${TIMESTAMP_FULL} peak ${DF_STAT_0}"
+    toot verbose "WBTBCJXM data backup ${TIMESTAMP_FULL} peak ${DF_STAT_0}"
     
     toot verbose "HHNSHGUM data backup ${TIMESTAMP_FULL} end"
 
