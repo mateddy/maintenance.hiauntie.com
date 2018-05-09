@@ -2,4 +2,4 @@ PATH=/home/hiauntie_bot/bin:/home/hiauntie_bot/.local/bin:/usr/local/bin:/usr/sb
 
 0 0 8-14 5 0 hiauntie_bot /home/hiauntie_bot/maintenance.hiauntie.com/host/script/mothers_day.sh >> /var/log/hiauntie/big_day.log 2>&1
 
-0 0 18 10 0 hiauntie_bot /home/hiauntie_bot/maintenance.hiauntie.com/host/script/luzi_mother_bday.sh >> /var/log/hiauntie/big_day.log 2>&1
+0 0 18 10 * hiauntie_bot /home/hiauntie_bot/maintenance.hiauntie.com/host/script/luzi_mother_bday.sh >> /var/log/hiauntie/big_day.log 2>&1
