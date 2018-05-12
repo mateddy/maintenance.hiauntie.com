@@ -71,5 +71,6 @@ ssh hiauntie_bot@hiauntie.com -C rm /home/hiauntie_bot/install.sh
 
 # install files
 sudo cp host/root/etc/cron.d/hiauntie_backup /etc/cron.d/hiauntie_backup
+sudo cp host/root/etc/cron.d/hiauntie_big_day /etc/cron.d/hiauntie_big_day
 
 echo LAMAGTUZ ${0} done
