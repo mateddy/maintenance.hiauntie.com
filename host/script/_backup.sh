@@ -63,7 +63,12 @@ if [ ${OPT_DB} -eq 1 ]; then
 
     toot verbose "URLKLBPN data backup ${TIMESTAMP_FULL} start"
     
-    ssh hiauntie_bot@hiauntie.com -C /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/backup.bot.sh
+    rm -f /tmp/AUXWBAWC.log
+    ssh hiauntie_bot@hiauntie.com -C /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/backup.bot.sh | tee /tmp/AUXWBAWC.log
+    DF_STAT_0=`cat /tmp/AUXWBAWC.log | grep ZGQSAAMK`
+    rm -f /tmp/AUXWBAWC.log
+
+    toot verbose "WBTBCJXM data backup ${TIMESTAMP_FULL} peak ${DF_STAT_0}"
     
     toot verbose "HHNSHGUM data backup ${TIMESTAMP_FULL} end"
 

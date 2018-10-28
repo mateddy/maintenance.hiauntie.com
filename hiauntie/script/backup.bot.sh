@@ -12,34 +12,42 @@ echo JEJJYMOF TIMESTAMP_FULL=${TIMESTAMP_FULL}
 echo KDSVWOCI create backup files
 cd /tmp
 sudo rm -rf /tmp/XFJXIDUJ-backup
-sudo sudo -u mastodon /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/backup.mastodon.sh
+sudo -u mastodon /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/backup.mastodon.sh
 sudo chown -R hiauntie_bot:hiauntie_bot /tmp/XFJXIDUJ-backup
 
-echo LEEIMVXB tar gz everything
-cd /tmp/XFJXIDUJ-backup
-tar -czf hiauntie-backup.tar.gz hiauntie-backup
-rm -rf /tmp/XFJXIDUJ-backup/hiauntie-backup
+echo ZJFKDKLW move backup product
+mv /tmp/XFJXIDUJ-backup/hiauntie-backup/mastodon_production.sql.gz /tmp/XFJXIDUJ-backup/
+mv /tmp/XFJXIDUJ-backup/hiauntie-backup/ugc.tar.gz                 /tmp/XFJXIDUJ-backup/
+mv /tmp/XFJXIDUJ-backup/hiauntie-backup/env.production.gz          /tmp/XFJXIDUJ-backup/
 
-echo COZNCIRT encrypt files
+echo RIAZEMKH encrypt files
 cd /tmp/XFJXIDUJ-backup
-pwgen -s 256 1 > /tmp/XFJXIDUJ-backup/enc.key
-openssl enc -aes-256-cbc -salt -kfile /tmp/XFJXIDUJ-backup/enc.key -in hiauntie-backup.tar.gz -out hiauntie-backup.tar.gz.enc
-openssl enc -aes-256-cbc -salt -kfile /home/hiauntie_bot/.hiauntie/backup_enc_key -in /tmp/XFJXIDUJ-backup/enc.key -out /tmp/XFJXIDUJ-backup/enc.key.enc
-rm -rf /tmp/XFJXIDUJ-backup/hiauntie-backup.tar.gz
-rm -rf /tmp/XFJXIDUJ-backup/enc.key
+pwgen -s 256 1 > mastodon_production.sql.gz.enc.key
+pwgen -s 256 1 > ugc.tar.gz.enc.key
+pwgen -s 256 1 > env.production.gz.enc.key
+openssl enc -aes-256-cbc -salt -kfile mastodon_production.sql.gz.enc.key -in mastodon_production.sql.gz -out mastodon_production.sql.gz.enc
+openssl enc -aes-256-cbc -salt -kfile ugc.tar.gz.enc.key                 -in ugc.tar.gz                 -out ugc.tar.gz.enc
+openssl enc -aes-256-cbc -salt -kfile env.production.gz.enc.key          -in env.production.gz          -out env.production.gz.enc
+openssl enc -aes-256-cbc -salt -kfile /home/hiauntie_bot/.hiauntie/backup_enc_key -in mastodon_production.sql.gz.enc.key -out mastodon_production.sql.gz.enc.key.enc
+openssl enc -aes-256-cbc -salt -kfile /home/hiauntie_bot/.hiauntie/backup_enc_key -in ugc.tar.gz.enc.key                 -out ugc.tar.gz.enc.key.enc
+openssl enc -aes-256-cbc -salt -kfile /home/hiauntie_bot/.hiauntie/backup_enc_key -in env.production.gz.enc.key          -out env.production.gz.enc.key.enc
+DF_STAT_0=`df -BM | grep vda2 | awk '{ print $3 " / " $2 " = " $5 }'`
+echo ZGQSAAMK ${DF_STAT_0}
+rm -f /tmp/XFJXIDUJ-backup/mastodon_production.sql.gz
+rm -f /tmp/XFJXIDUJ-backup/ugc.tar.gz
+rm -f /tmp/XFJXIDUJ-backup/env.production.gz
+rm -f /tmp/XFJXIDUJ-backup/mastodon_production.sql.gz.enc.key
+rm -f /tmp/XFJXIDUJ-backup/ugc.tar.gz.enc.key
+rm -f /tmp/XFJXIDUJ-backup/env.production.gz.enc.key
 
-echo UQMEXYOM final tar to one file
+echo HUBTKBWW upload to s3
 cd /tmp/XFJXIDUJ-backup
-mkdir -p /tmp/XFJXIDUJ-backup/pack
-mv /tmp/XFJXIDUJ-backup/hiauntie-backup.tar.gz.enc /tmp/XFJXIDUJ-backup/pack/hiauntie-backup.tar.gz.enc
-mv /tmp/XFJXIDUJ-backup/enc.key.enc                /tmp/XFJXIDUJ-backup/pack/enc.key.enc
-tar -cf pack.tar pack
-rm -rf /tmp/XFJXIDUJ-backup/pack
-
-echo KXYMXFAE upload to s3
-cd /tmp/XFJXIDUJ-backup
-aws s3 cp /tmp/XFJXIDUJ-backup/pack.tar s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/data-backup-${TIMESTAMP_FULL}.tar --quiet
-rm -rf /tmp/XFJXIDUJ-backup/pack.tar
+aws s3 cp /tmp/XFJXIDUJ-backup/mastodon_production.sql.gz.enc s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/mastodon_production.sql.gz.enc.${TIMESTAMP_FULL} --quiet
+aws s3 cp /tmp/XFJXIDUJ-backup/ugc.tar.gz.enc                 s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/ugc.tar.gz.enc.${TIMESTAMP_FULL} --quiet
+aws s3 cp /tmp/XFJXIDUJ-backup/env.production.gz.enc          s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/env.production.gz.enc.${TIMESTAMP_FULL} --quiet
+aws s3 cp /tmp/XFJXIDUJ-backup/mastodon_production.sql.gz.enc.key.enc s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/mastodon_production.sql.gz.enc.key.enc.${TIMESTAMP_FULL} --quiet
+aws s3 cp /tmp/XFJXIDUJ-backup/ugc.tar.gz.enc.key.enc                 s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/ugc.tar.gz.enc.key.enc.${TIMESTAMP_FULL} --quiet
+aws s3 cp /tmp/XFJXIDUJ-backup/env.production.gz.enc.key.enc          s3://hiauntie-backup/data/${TIMESTAMP_YYYY}/${TIMESTAMP_FULL}/env.production.gz.enc.key.enc.${TIMESTAMP_FULL} --quiet
 
 echo GQNLIDYQ clean up
 cd /tmp

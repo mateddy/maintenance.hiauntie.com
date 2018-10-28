@@ -2,4 +2,8 @@ PATH=/home/hiauntie_bot/bin:/home/hiauntie_bot/.local/bin:/usr/local/bin:/usr/sb
 
 30 3 * * 0-5 hiauntie_bot /home/hiauntie_bot/maintenance.hiauntie.com/host/script/backup.sh -d    >> /var/log/hiauntie/backup.bot.log 2>&1
 
+00 15 * * 5  hiauntie_bot /home/hiauntie_bot/maintenance.hiauntie.com/host/script/maintenance_toot_warning_12.sh >> /var/log/hiauntie/backup.bot.log 2>&1
+
+55 2 * * 6   hiauntie_bot /home/hiauntie_bot/maintenance.hiauntie.com/host/script/maintenance_toot_warning.sh >> /var/log/hiauntie/backup.bot.log 2>&1
+
 30 3 * * 6   hiauntie_bot /home/hiauntie_bot/maintenance.hiauntie.com/host/script/backup.sh -dvum >> /var/log/hiauntie/backup.bot.log 2>&1

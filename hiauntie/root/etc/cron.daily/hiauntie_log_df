@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+sudo -u hiauntie_bot -i /home/hiauntie_bot/maintenance.hiauntie.com/hiauntie/script/log_df.sh

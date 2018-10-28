@@ -29,7 +29,7 @@ fi
 chmod 600 /home/hiauntie_bot/.hiauntie/config.json
 
 # install software
-sudo apt-get install python-pip python3-pip pwgen jq -y
+sudo apt-get install python-pip python3-pip pwgen jq dateutils -y
 sudo pip install --upgrade pip
 sudo pip3 install --upgrade pip
 pip install --user --upgrade awscli
@@ -71,5 +71,6 @@ ssh hiauntie_bot@hiauntie.com -C rm /home/hiauntie_bot/install.sh
 
 # install files
 sudo cp host/root/etc/cron.d/hiauntie_backup /etc/cron.d/hiauntie_backup
+sudo cp host/root/etc/cron.d/hiauntie_big_day /etc/cron.d/hiauntie_big_day
 
 echo LAMAGTUZ ${0} done

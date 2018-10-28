@@ -1,6 +1,7 @@
 from mastodon import Mastodon
 import os.path
 from . import common
+import sys
 
 common.makedirs('/home/hiauntie_bot/.hiauntie')
 
